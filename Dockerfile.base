@@ -22,5 +22,5 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 RUN mkdir /go/ctol/ && cd ctol && \
     wget --no-check-certificate -c https://zlib.net/zlib-1.2.12.tar.gz -O zlib-1.2.12.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf zlib-1.2.12.tar.gz && ls -a && \
-    cd zlib-1.2.12 && mkdir building && ./configure --prefix=/go/ctol/building --static
+    cd zlib-1.2.12 && mkdir building && ./configure --prefix=/go/ctol/building --static && \
     make && make install
