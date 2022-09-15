@@ -30,15 +30,15 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 #    cd c-ares-1.18.1 && mkdir building && ./configure --prefix=/go/ctol/building --disable-shared --enable-static && \
 #    make && make install
 
-#RUN mkdir /go/ctol/ && cd ctol && \
-#    wget --no-check-certificate -c https://www.sqlite.org/2022/sqlite-autoconf-3390300.tar.gz -O sqlite-autoconf-3390300.tar.gz --progress=bar:force -t 2 -T 30 && \
-#    tar -xzf sqlite-autoconf-3390300.tar.gz && ls -a && \
-#    cd sqlite-autoconf-3390300 && mkdir building && ./configure --prefix=/go/sdk/building --disable-shared --enable-static && \
-#    make && make install
-
 RUN mkdir /go/ctol/ && cd ctol && \
-    wget --no-check-certificate -c https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz -O libsodium-1.0.18.tar.gz --progress=bar:force -t 2 -T 30 && \
-    tar -xzf libsodium-1.0.18.tar.gz && ls -a && \
-    cd libsodium-1.0.18 && sh autogen.sh && mkdir building && ./configure --prefix=/go/ctol/building --disable-shared --enable-static --disable-pie && \
+    wget --no-check-certificate -c https://www.sqlite.org/2022/sqlite-autoconf-3390300.tar.gz -O sqlite-autoconf-3390300.tar.gz --progress=bar:force -t 2 -T 30 && \
+    tar -xzf sqlite-autoconf-3390300.tar.gz && ls -a && \
+    cd sqlite-autoconf-3390300 && mkdir building && ./configure --prefix=/go/sdk/building --disable-shared --enable-static && \
     make && make install
+
+#RUN mkdir /go/ctol/ && cd ctol && \
+#    wget --no-check-certificate -c https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz -O libsodium-1.0.18.tar.gz --progress=bar:force -t 2 -T 30 && \
+#    tar -xzf libsodium-1.0.18.tar.gz && ls -a && \
+#    cd libsodium-1.0.18 && sh autogen.sh && mkdir building && ./configure --prefix=/go/ctol/building --disable-shared --enable-static --disable-pie && \
+#    make && make install
 
