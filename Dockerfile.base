@@ -3,7 +3,7 @@ FROM golang:alpine3.15
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
     unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
     build-base perl ca-certificates \
-    brotli-dev brotli-static c-ares-dev c-ares-static sqlite-dev \
+    brotli-dev brotli-static sqlite-dev \
     sqlite-static libsodium-dev libsodium-static curl-dev curl-static nghttp2-dev nghttp2-static
 
 
@@ -19,8 +19,14 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 #    cd openssl-3.0.4 && mkdir building && ./config --prefix=/go/ctol/openssl-3.0.4/building/ --openssldir=/go/ctol/openssl-3.0.4/building/ no-shared && \
 #    make && make install
 
+#RUN mkdir /go/ctol/ && cd ctol && \
+#    wget --no-check-certificate -c https://zlib.net/zlib-1.2.12.tar.gz -O zlib-1.2.12.tar.gz --progress=bar:force -t 2 -T 30 && \
+#    tar -xzf zlib-1.2.12.tar.gz && ls -a && \
+#    cd zlib-1.2.12 && mkdir building && ./configure --prefix=/go/ctol/building --static && \
+#    make && make install
+
 RUN mkdir /go/ctol/ && cd ctol && \
-    wget --no-check-certificate -c https://zlib.net/zlib-1.2.12.tar.gz -O zlib-1.2.12.tar.gz --progress=bar:force -t 2 -T 30 && \
-    tar -xzf zlib-1.2.12.tar.gz && ls -a && \
-    cd zlib-1.2.12 && mkdir building && ./configure --prefix=/go/ctol/building --static && \
+    wget --no-check-certificate -c https://c-ares.org/download/c-ares-1.18.1.tar.gz -O c-ares-1.18.1.tar.gz --progress=bar:force -t 2 -T 30 && \
+    tar -xzf c-ares-1.18.1.tar.gz && ls -a && \
+    cd c-ares-1.18.1 && mkdir building && ./configure --prefix=/go/ctol/building --disable-shared --enable-static && \
     make && make install
