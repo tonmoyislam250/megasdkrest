@@ -8,7 +8,7 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 RUN mkdir /go/ctol/ && cd ctol && \
     wget --no-check-certificate -c https://github.com/google/brotli/archive/refs/tags/v1.0.9.tar.gz -O v1.0.9.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf v1.0.9.tar.gz && ls -a && \
-    cd v1.0.9 && mkdir building && cd building && ../configure-cmake && \
+    cd brotli-1.0.9 && mkdir building && cd building && ../configure-cmake && \
     make && make install
 
 
