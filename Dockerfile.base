@@ -16,5 +16,5 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 RUN mkdir /go/ctol/ && cd ctol && \
     wget --no-check-certificate -c https://www.openssl.org/source/old/3.0/openssl-3.0.4.tar.gz -O openssl-3.0.4.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf openssl-3.0.4.tar.gz && ls -a && \
-    cd openssl-3.0.4 && ./config  --prefix=/go/ctol/openssl-3.0.4 --openssldir=/go/ctol/openssl-3.0.4 no-shared && \
+    cd openssl-3.0.4 && mkdir building && ./config  --prefix=/go/ctol/openssl-3.0.4/building/ --openssldir=/go/ctol/openssl-3.0.4/building/ no-shared && \
     make && make install
