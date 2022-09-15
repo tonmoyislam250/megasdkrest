@@ -5,6 +5,13 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
     build-base perl ca-certificates \
     brotli-dev brotli-static curl-dev curl-static nghttp2-dev nghttp2-static
 
+RUN mkdir /go/ctol/ && cd ctol && \
+    wget --no-check-certificate -c https://github.com/google/brotli/archive/refs/tags/v1.0.9.tar.gz -O v1.0.9.tar.gz --progress=bar:force -t 2 -T 30 \
+    tar -xzf v1.0.9.tar.gz && ls -a && \
+    cd v1.0.9 && mkdir building && cd building && ../configure-cmake && \
+    make && make install
+
+
 
 #RUN mkdir /go/ctol/ && cd ctol && \
 #    wget --no-check-certificate -c https://cryptopp.com/cryptopp870.zip -O cryptopp870.zip --progress=bar:force -t 2 -T 30 && mkdir cryptopp870 && \
