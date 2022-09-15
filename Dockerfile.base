@@ -8,5 +8,5 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 
 
 RUN mkdir /go/ctol/ && cd ctol && \
-    wget --secure-protocol=TLSv1_2 --no-check-certificate https://www.cryptopp.com/cryptopp870.zip 
+    wget --no-check-certificate https://www.cryptopp.com/cryptopp870.zip 
 RUN unzip cryptopp870.zip -d /go/ctol/ && ls -a /go/ctol/cryptopp870
