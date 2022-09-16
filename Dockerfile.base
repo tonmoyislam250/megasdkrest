@@ -8,40 +8,40 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --up
 
 
 
-RUN mkdir /go/ctol1/ && cd ctol1 && \
-    wget --no-check-certificate -c https://cryptopp.com/cryptopp870.zip -O cryptopp870.zip --progress=bar:force -t 2 -T 30 && mkdir cryptopp870 && \
-    unzip cryptopp870.zip -d /go/ctol1/cryptopp870/ && ls -a cryptopp870 && \
-    cd cryptopp870 && make static && make install
+#RUN mkdir /go/ctol1/ && cd ctol1 && \
+#    wget --no-check-certificate -c https://cryptopp.com/cryptopp870.zip -O cryptopp870.zip --progress=bar:force -t 2 -T 30 && mkdir cryptopp870 && \
+#    unzip cryptopp870.zip -d /go/ctol1/cryptopp870/ && ls -a cryptopp870 && \
+#    cd cryptopp870 && make static && make install
 
 
-RUN mkdir /go/ctol2/ && cd ctol2 && \
-    wget --no-check-certificate -c https://www.openssl.org/source/old/3.0/openssl-3.0.4.tar.gz -O openssl-3.0.4.tar.gz --progress=bar:force -t 2 -T 30 && \
-    tar -xzf openssl-3.0.4.tar.gz && ls -a && \
-    cd openssl-3.0.4 && mkdir building && ./config --prefix=/go/ctol2/openssl-3.0.4/building/ --openssldir=/go/ctol2/openssl-3.0.4/building/ no-shared && \
-    make && make install
+#RUN mkdir /go/ctol2/ && cd ctol2 && \
+#    wget --no-check-certificate -c https://www.openssl.org/source/old/3.0/openssl-3.0.4.tar.gz -O openssl-3.0.4.tar.gz --progress=bar:force -t 2 -T 30 && \
+#   tar -xzf openssl-3.0.4.tar.gz && ls -a && \
+#    cd openssl-3.0.4 && mkdir building && ./config --prefix=/go/ctol2/openssl-3.0.4/building/ --openssldir=/go/ctol2/openssl-3.0.4/building/ no-shared && \
+#    make && make install
 
 RUN mkdir /go/ctol3/ && cd ctol3 && \
     wget --no-check-certificate -c https://zlib.net/zlib-1.2.12.tar.gz -O zlib-1.2.12.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf zlib-1.2.12.tar.gz && ls -a && \
-    cd zlib-1.2.12 && mkdir building && ./configure --prefix=/go/ctol3/building --static && \
+    cd zlib-1.2.12 && ./configure  --static && \
     make && make install
 
 RUN mkdir /go/ctol4/ && cd ctol4 && \
     wget --no-check-certificate -c https://c-ares.org/download/c-ares-1.18.1.tar.gz -O c-ares-1.18.1.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf c-ares-1.18.1.tar.gz && ls -a && \
-    cd c-ares-1.18.1 && mkdir building && ./configure --prefix=/go/ctol4/building --disable-shared --enable-static && \
+    cd c-ares-1.18.1 && ./configure  --disable-shared --enable-static && \
     make && make install
 
 RUN mkdir /go/ctol5/ && cd ctol5 && \
     wget --no-check-certificate -c https://www.sqlite.org/2022/sqlite-autoconf-3390300.tar.gz -O sqlite-autoconf-3390300.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf sqlite-autoconf-3390300.tar.gz && ls -a && \
-    cd sqlite-autoconf-3390300 && mkdir building && ./configure --prefix=/go/ctol5/building --disable-shared --enable-static && \
+    cd sqlite-autoconf-3390300 && ./configure --disable-shared --enable-static && \
     make && make install
 
 RUN mkdir /go/ctol6/ && cd ctol6 && \
     wget --no-check-certificate -c https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz -O libsodium-1.0.18.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf libsodium-1.0.18.tar.gz && ls -a && \
-    cd libsodium-1.0.18 && sh autogen.sh && mkdir building && ./configure --prefix=/go/ctol6/building --disable-shared --enable-static --disable-pie && \
+    cd libsodium-1.0.18 && sh autogen.sh && configure --disable-shared --enable-static --disable-pie && \
     make && make install
 
 
