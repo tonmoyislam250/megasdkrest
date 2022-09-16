@@ -2,7 +2,7 @@ FROM golang:alpine3.15
 
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
     unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
-    build-base perl ca-certificates cmake brotil-dev brotil-static \
+    build-base perl ca-certificates cmake brotli-dev brotli-static \
     curl-dev curl-static nghttp2-dev nghttp2-static
 
 RUN mkdir /go/ctol1/ && cd ctol1 && \
