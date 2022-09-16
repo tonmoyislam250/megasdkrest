@@ -41,7 +41,7 @@ RUN mkdir /go/ctol5/ && cd ctol5 && \
 RUN mkdir /go/ctol6/ && cd ctol6 && \
     wget --no-check-certificate -c https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz -O libsodium-1.0.18.tar.gz --progress=bar:force -t 2 -T 30 && \
     tar -xzf libsodium-1.0.18.tar.gz && ls -a && \
-    cd libsodium-1.0.18 && sh autogen.sh && configure --disable-shared --enable-static --disable-pie && \
+    cd libsodium-1.0.18 && sh autogen.sh && ./configure --disable-shared --enable-static --disable-pie && \
     make && make install
 
 
