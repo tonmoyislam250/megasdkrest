@@ -2,7 +2,7 @@ FROM golang:alpine3.15
 
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
     unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
-    build-base perl ca-certificates cmake \
+    build-base perl ca-certificates cmake brotil-dev brotil-static \
     curl-dev curl-static nghttp2-dev nghttp2-static
 
 RUN mkdir /go/ctol1/ && cd ctol1 && \
@@ -41,8 +41,8 @@ RUN mkdir /go/ctol6/ && cd ctol6 && \
     make && make install
 
 
-RUN mkdir /go/ctol7/ && cd ctol7 && \
-    wget --no-check-certificate -c https://github.com/google/brotli/archive/refs/tags/v1.0.9.tar.gz -O v1.0.9.tar.gz --progress=bar:force -t 2 -T 30 && \
-    tar -xzf v1.0.9.tar.gz && ls -a && \
-    cd brotli-1.0.9 && mkdir building && cd building && ../configure-cmake && \
-    make && make install
+#RUN mkdir /go/ctol7/ && cd ctol7 && \
+#     wget --no-check-certificate -c https://github.com/google/brotli/archive/refs/tags/v1.0.9.tar.gz -O v1.0.9.tar.gz --progress=bar:force -t 2 -T 30 && \
+#    tar -xzf v1.0.9.tar.gz && ls -a && \
+#    cd brotli-1.0.9 && mkdir building && cd building && ../configure-cmake && \
+#    make && make install
