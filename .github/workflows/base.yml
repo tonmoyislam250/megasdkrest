@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile.base
+          file: ./Dockerfile.base2
           platforms: linux/amd64
           push: true
           tags: ghcr.io/tonmoyislam250/megarestbase:latest
