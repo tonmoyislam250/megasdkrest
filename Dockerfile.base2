@@ -1,6 +1,5 @@
 FROM golang:alpine3.15
-RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
-    unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
-    build-base perl ca-certificates openssl-dev openssl-libs-static readline-dev readline-static
-RUN wget https://github.com/tonmoyislam250/fluffy-guide/releases/download/v5/pack.zip \
+RUN apk add unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
+    build-base perl ca-certificates
+RUN wget https://github.com/tonmoyislam250/fluffy-guide/releases/download/v6/pack.zip \
     && unzip pack.zip && cd pack && apk add --allow-untrusted *
