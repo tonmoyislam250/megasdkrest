@@ -12,7 +12,7 @@ RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk && \
 
 RUN mkdir -p /usr/local/go/src/ && cd /usr/local/go/src/ && \
     git clone https://github.com/tonmoyislam250/megasdk-latest && \
-    cd megasdkgo && rm -rf .git && \
+    cd megasdk-latest && rm -rf .git && \
     mkdir include && cp -r /go/sdk/include/* include && \
     mkdir .libs && \
     cp /usr/lib/lib*.a .libs/ && \
