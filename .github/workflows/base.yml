@@ -25,4 +25,4 @@ jobs:
           file: ./Dockerfile.base2
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/tonmoyislam250/megarestbase:latest
+          tags: ghcr.io/tonmoyislam250/MegaC++:latest
