@@ -11,8 +11,8 @@ RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk && \
     make install
 
 RUN mkdir -p /usr/local/go/src/ && cd /usr/local/go/src/ && \
-    git clone https://github.com/tonmoyislam250/megasdk-latest && \
-    mv megasdk-latest megasdkgo && cd megasdkgo && rm -rf .git && \
+    git clone https://github.com/tonmoyislam250/megasdkgo \
+    && cd megasdkgo && rm -rf .git && \
     mkdir include && cp -r /go/sdk/include/* include && \
     mkdir .libs && \
     cp /usr/lib/lib*.a .libs/ && \
