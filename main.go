@@ -128,7 +128,7 @@ func main() {
 		},
 	}
 	if Version == "" {
-		app.Version = "0.1.0"
+		app.Version = "4.18.0"
 	} else {
 		app.Version = Version
 	}
