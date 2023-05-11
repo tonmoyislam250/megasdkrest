@@ -3,8 +3,7 @@ FROM ghcr.io/tonmoyislam250/megacppsdk:latest AS builder
 ARG CPU_ARCH=amd64
 ENV HOST_CPU_ARCH=$CPU_ARCH
 
-RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk && \
-    git checkout v4.13.0 && \
+RUN git clone https://github.com/tonmoyislam250/meganz.git sdk && cd sdk && \
     sh autogen.sh && \
     ./configure CFLAGS='-fpermissive' CXXFLAGS='-fpermissive' CPPFLAGS='-fpermissive' CCFLAGS='-fpermissive' \
     --disable-examples --disable-silent-rules --disable-shared --enable-static --without-freeimage && \
