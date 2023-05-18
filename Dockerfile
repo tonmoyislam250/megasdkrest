@@ -14,7 +14,7 @@ ARG CPU_ARCH=amd64
 ENV HOST_CPU_ARCH=$CPU_ARCH
 
 RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk && \
-     git checkout v4.8.0 && \
+     git checkout v4.9.0 && \
      sh autogen.sh && \
     ./configure CFLAGS='-fpermissive' CXXFLAGS='-fpermissive' CPPFLAGS='-fpermissive' CCFLAGS='-fpermissive' \
     --disable-examples --disable-silent-rules --disable-shared --enable-static --without-freeimage && \
