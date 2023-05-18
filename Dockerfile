@@ -1,4 +1,4 @@
-FROM golang:alpine AS Builder
+FROM golang:alpine3.17 AS Builder
 RUN apk add unzip tar xz wget alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 \
     build-base perl ca-certificates
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
