@@ -4,9 +4,9 @@ RUN apk add unzip tar xz wget alpine-sdk git libtool autoconf automake linux-hea
 RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update \
      zlib-dev zlib-static curl-dev curl-static openssl-dev openssl-libs-static \
      alpine-sdk git libtool autoconf automake linux-headers musl-dev m4 build-base perl ca-certificates \
-     brotli-dev brotli-static readline-dev readline-static unzip tar xz wget libidn2-dev \
+     brotli-dev brotli-static readline-dev readline-static unzip tar xz wget libidn2-dev libcurl \
      sqlite-dev sqlite-static libsodium-dev libsodium-static  nghttp2-dev nghttp2-static
-RUN wget https://github.com/tonmoyislam250/fluffy-guide/releases/download/v1.0.7/packages.tar.gz \
+RUN wget https://github.com/tonmoyislam250/fluffy-guide/releases/download/v1.0.8/packages.tar.gz \
     && tar -xzf packages.tar.gz && \
     cd packages/crypto/x86_64/ && apk add --allow-untrusted *.apk && \
     cd ../../cares/x86_64/ && apk add --allow-untrusted *.apk
